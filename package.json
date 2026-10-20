@@ -1,0 +1,28 @@
+{
+  "name": "love-journey-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aplicativo Android do Love Journey (Capacitor) a partir do dist/ do repositório Front-End.",
+  "type": "module",
+  "scripts": {
+    "verificar": "node --check scripts/preparar-web.mjs && node --check scripts/gradle.mjs && node --check web/app-android.js",
+    "preparar": "node scripts/preparar-web.mjs",
+    "sync": "npm run preparar && cap sync android",
+    "abrir": "cap open android",
+    "apk": "npm run sync && node scripts/gradle.mjs assembleDebug",
+    "apk-release": "npm run sync && node scripts/gradle.mjs assembleRelease",
+    "aab": "npm run sync && node scripts/gradle.mjs bundleRelease"
+  },
+  "dependencies": {
+    "@capacitor/android": "8.5.3",
+    "@capacitor/core": "8.5.3",
+    "@capacitor/filesystem": "8.1.5",
+    "@capacitor/share": "8.0.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.5.3",
+    "@fontsource/nunito": "5.3.0",
+    "@fontsource/poppins": "5.3.0",
+    "@fortawesome/fontawesome-free": "7.3.1"
+  }
+}
